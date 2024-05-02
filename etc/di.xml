@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="news_page_listing_data_source" xsi:type="string">Kitchen\News\Model\ResourceModel\Gallery\Grid\Collection</item>
+                <item name="news_page_form_data_source" xsi:type="string">Kitchen\News\Model\ResourceModel\Gallery\Grid\Collection</item>
+                <item name="customer_page_listing_data_source" xsi:type="string">Kitchen\News\Model\ResourceModel\Customer\Grid\Collection</item>
+                <item name="customer_page_form_data_source" xsi:type="string">Kitchen\News\Model\ResourceModel\Customer\Grid\Collection</item>
+                <item name="cron_schedule_grid_data_source" xsi:type="string">Kitchen\News\Model\ResourceModel\Schedule\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Kitchen\News\Model\ResourceModel\Gallery\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">kitchen_News</argument>
+            <!-- to define tablename and id -->
+            <argument name="resourceModel" xsi:type="string">Kitchen\News\Model\ResourceModel\Gallery</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Kitchen\News\Model\ResourceModel\Schedule\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cron_schedule</argument>
+            <argument name="resourceModel" xsi:type="string">Kitchen\News\Model\ResourceModel\Schedule</argument>
+        </arguments>
+    </virtualType>
+    
+    <!-- Table is Customer -->
+    <virtualType name="Kitchen\News\Model\ResourceModel\Customer\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cp_customer</argument>
+            <!-- to define tablename and id -->
+            <!-- give path upto .php file in below tag  -->
+            <argument name="resourceModel" xsi:type="string">Kitchen\News\Model\ResourceModel\Customer</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- <preference for="Magento\Customer\Controller\Account\LoginPost" type="Kitchen\News\Controller\Account\LoginPost" /> -->
+
+    <type name="Magento\Customer\Controller\Account\LoginPost">
+        <plugin name="kitchen_news_plugin_customer_login"
+                type="Kitchen\News\Plugin\CustomerLogin" sortOrder="10" />
+    </type>
+    
+</config>

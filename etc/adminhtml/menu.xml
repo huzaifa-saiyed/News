@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kitchen_News::news" title="Manage News" translate="title" module="Kitchen_News" sortOrder="10" dependsOnModule="Kitchen_News" resource="Kitchen_News::news"/>
+
+        <add id="Kitchen_News::news_add" title="Add News" translate="title" module="Kitchen_News" sortOrder="30" parent="Kitchen_News::news" action="news1/news" dependsOnModule="Kitchen_News" resource="Kitchen_News::news_add"/>
+
+        <add id="Kitchen_News::news_edit" title="Edit News" translate="title" module="Kitchen_News" sortOrder="20" parent="Kitchen_News::news" action="news1/edit" dependsOnModule="Kitchen_News" resource="Kitchen_News::news_edit"/>
+
+        <add id="Kitchen_News::news_grid" title="News Grid" translate="title" module="Kitchen_News" sortOrder="10" parent="Kitchen_News::news" action="news1/news" dependsOnModule="Kitchen_News" resource="Kitchen_News::news_grid"/>
+    </menu>
+
+    <menu>
+    <!-- parent add tag -->
+        <add id="Kitchen_News::customer" title="Manage Customer" translate="title" module="Kitchen_News" sortOrder="20" dependsOnModule="Kitchen_News" resource="Kitchen_News::customer"/>
+
+    <!-- child add tag -->
+        <add id="Kitchen_News::customer_grid" title="All Customers" translate="title" module="Kitchen_News" sortOrder="20" parent="Kitchen_News::customer" action="news1/Customer" dependsOnModule="Kitchen_News" resource="Kitchen_News::customer_grid"/>
+
+        <add id="Kitchen_News::customer_normal" title="Customers" translate="title" module="Kitchen_News" sortOrder="20" parent="Kitchen_News::customer" action="news1/Normalgrid" dependsOnModule="Kitchen_News" resource="Kitchen_News::customer_normal"/>
+
+        <add id="Kitchen_News::cron_schedule_grid" title="Cron Schedule" translate="title" module="Kitchen_News" sortOrder="30" parent="Kitchen_News::customer" action="news1/Cron" dependsOnModule="Kitchen_News" resource="Kitchen_News::cron_schedule_grid"/>
+    </menu>
+
+</config>

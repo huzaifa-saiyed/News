@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="newsId" translate="label" sortOrder="10">
+            <label>Kitchen 365</label>
+        </tab>
+        <section id="info" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>wide</class>
+            <!-- collapsible, wide -->
+            <!-- <class>collapsible</class> -->
+            <label>Manage Promotions</label>
+            <tab>newsId</tab>
+            <resource>Kitchen_News::news_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Kitchen\News\Model\Config\Source\Weeks</source_model>
+                </field>
+                <field id="display_text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Display Text</label>
+                    <comment>This text will display on the frontend.</comment>
+                </field>
+            </group>
+            <group id="general1" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Promotion Configuration</label>
+                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enter Name</label>
+                    <!-- <source_model>Kitchen\News\Model\Config\Source\Weeks</source_model> -->
+                </field>
+                <field id="description" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enter Description</label>
+                    <comment>This text will display on the frontend.</comment>
+                </field>
+                <field id="startDate" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Date</label>
+                    <!-- <source_model>Kitchen\News\Model\Config\Source\Weeks</source_model> -->
+                </field>
+                <field id="endDate" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>End Date</label>
+                    <!-- <source_model>Kitchen\News\Model\Config\Source\Weeks</source_model> -->
+                </field>
+                <field id="isActive" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Active</label>
+                    <source_model>Kitchen\News\Model\Config\Source\Promot</source_model>
+                </field>
+                <field id="fileUpload" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="6" showInDefault="1" showInWebsite="1" >
+                    <label>Upload File</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" scope_info="1">test</upload_dir>
+                </field>
+            </group>
+            <group id="general2" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>All Fields</label>
+
+                <field id="btn" translate="label" type="button" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Field</label>
+                    <frontend_model>Kitchen\News\Block\System\Config\Button</frontend_model>
+                </field>
+
+                <field id="check" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Checkbox OR Checkboxes</label>
+                    <frontend_model>Kitchen\News\Block\System\Config\Checkbox</frontend_model>
+                </field>
+
+                <field id="dates" translate="label" sortOrder="15" type="date" showInDefault="1" showInStore="1" >
+                    <label>Date Picker</label>
+                    <!-- here we pass class where we create date picker-->
+                    <frontend_model>Kitchen\News\Block\DatePicker</frontend_model>
+                </field>
+
+                <field id="Editor" translate="label" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Editor</label>
+                    <frontend_model>Kitchen\News\Block\Adminhtml\Editor</frontend_model>
+                </field>
+
+                <field id="fileUpload" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="25" showInDefault="1" showInWebsite="1" >
+                    <label>File Uploader</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" scope_info="1">test</upload_dir>
+                </field>
+
+                <field id="imageUpload" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Uploader</label>
+                    <comment>Allowed file types: jpg, jpeg, png</comment>
+                    <!-- backend model which save uploaded  file on define location -->
+                    <backend_model>Kitchen\News\Model\SaveImage</backend_model>
+                    <base_url type="media" scope_info="1">test</base_url>
+                </field>
+
+                <field id="multiselect" translate="label" type="multiselect" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Multi Select</label>
+                    <source_model>Kitchen\News\Model\Config\Options</source_model>
+                    <validate>validate-select</validate>
+                </field>
+
+                <field id="secret_key" translate="label" type="obscure" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Secret Key</label>
+                </field>
+                
+                <field id="password_key" translate="label" type="password" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Password Key</label>
+                </field>
+
+                <field id="enable" translate="label" type="radios" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>RadioBtn</label>
+                    <source_model>Kitchen\News\Model\Config\Source\Customer\Gender</source_model>
+                </field>
+
+
+                <!-- <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Drop-Down</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> -->
+
+
+                <field id="name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enter Name</label>
+                </field>
+
+                <field id="description" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enter Description</label>
+                    <comment>This text will display on the frontend.</comment>
+                </field>
+                <field id="startDate" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Date</label>
+                    <!-- <source_model>Kitchen\News\Model\Config\Source\Weeks</source_model> -->
+                </field>
+                <field id="endDate" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>End Date</label>
+                    <!-- <source_model>Kitchen\News\Model\Config\Source\Weeks</source_model> -->
+                </field>
+                <field id="isActive" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Active</label>
+                    <source_model>Kitchen\News\Model\Config\Source\Promot</source_model>
+                </field>
+                
+            </group>
+        </section>
+        <section id="info1" translate="label" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>wide</class>
+            <!-- collapsible, wide -->
+            <!-- <class>collapsible</class> -->
+            <label>Manage Email</label>
+            <tab>newsId</tab>
+            <resource>Kitchen_News::email_config</resource>
+            <group id="emails" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Selection</label>
+                <field id="recipient_emails" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label> Send:</label>
+                    <validate>validate-email</validate>
+                    <depends>
+                        <field id="*/contact/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="from_emails" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label> From:</label>
+                    <validate>validate-email</validate>
+                    <depends>
+                        <field id="*/contact/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="from_names" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label> Sender Name:</label>
+                    <!-- <validate>validate-email</validate> -->
+                    <depends>
+                        <field id="*/contact/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sender_emails_identity" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sender Email </label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="*/contact/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="emails_template" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Kitchen\News\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="*/contact/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="carriers" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="grpcarriers" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Kitchen 365 - UPS</label>
+                <field id="active" translate="label" type="select" sortOrder="30" showInDefault="1" showInStore="0" showInWebsite="1" canRestore="1">
+                    <label>Enabled - UPS</label>
+                    <source_model>Kitchen\News\Model\Config\Source\Promot</source_model>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enter Name - UPS</label>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enter Price - UPS</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="price_condition" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enter Price Condition</label>
+                </field>
+             </group>
+        </section>
+
+    </system>
+</config>

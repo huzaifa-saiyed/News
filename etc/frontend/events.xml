@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+   <!--   -->
+    <event name="controller_action_postdispatch_catalog_category_view">
+        <observer name="event_text" instance="Kitchen\News\Observer\Event" />
+    </event> 
+    <event name="kitchen_news_display_text">
+        <observer name="event_display_text" instance="Kitchen\News\Observer\ChangeDisplayText" />
+    </event>
+    <event name="customer_register_success">
+        <observer name="module_custom_save_customer" instance="Kitchen\News\Observer\SaveCustomer" />
+    </event>
+    
+</config>

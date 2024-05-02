@@ -1,0 +1,14 @@
+{
+    "kitchen_News": {
+        "column": {
+            "news_id": true,
+            "news_title": true,
+            "news_desc": true,
+            "creation_time": true,
+            "update_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
